@@ -1,0 +1,557 @@
+// === imports ===
+@import "normalize.css";
+@import "./fonts.scss";
+@import "./tailwind.scss";
+// === / imports ===
+// === variables ===
+$brand-text-color: #22356F;
+$brand-background-color: #62D0DF;
+
+$padding-sefiry: 20px;
+// === / variables ===
+// === global ===
+body {
+    background: #FFF;
+}
+
+.container {
+    max-width: 1120px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.description {
+    font-size: 16px;
+}
+
+.text__nav {
+    font-size: 14px;
+}
+
+.title-card {
+    font-size: 32px;
+}
+
+.title-card-second {
+    font-size: 36px;
+}
+
+.button {
+    width: 150px;
+    height: 50px;
+    transition: .5s; 
+    font-weight: bold;
+}
+
+.bg-brand {
+    background: $brand-background-color;
+}
+
+.bg-blue {
+    background: #0052C1;
+}
+
+.bg-dark-blue {
+    background: $brand-text-color;
+}
+
+.bg-light-green {
+    background: #C4E769;
+}
+
+.bg-pink {
+    background: #FFE2DE;
+}
+
+.bg-purple {
+    background: #8F00FF;
+}
+
+.bg-light-purple {
+    background: #DEE1FF;
+}
+// === / global ===
+// === header ===
+.header {
+    position: relative;
+    overflow: hidden;
+    
+    &::before {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 0;
+        display: block;
+        width: clamp(240px, 51vw, 740px);
+        height: clamp(230px, 50vw, 730px);
+        background: url("/img/Header/background-image.png") no-repeat;
+        background-position: right;
+        background-size: contain;
+        z-index: 2;
+
+        @media (max-width: 830px) {
+            display: none;
+        }
+    }
+    
+    &::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 0;
+        display: block;
+        width: clamp(200px, 45vw, 600px);
+        height: clamp(331px, 60vw, 993px);
+        background: url("/img/Header/background.svg") no-repeat;
+        background-size: contain;
+
+        @media (max-width: 830px) {
+            display: none;
+        }
+    }
+
+    .background {
+        content: "";
+        position: absolute;
+        left: 0;
+        z-index: -1;
+        background: #F4F9E2;
+        display: block;
+        width: 77vw;
+        height: 100%;
+
+        @media (max-width: 830px) {
+            width: 100vw;
+        }
+    }
+
+    .container {
+
+        .nav {
+            position: relative;
+            z-index: 3;
+            padding-top: 27px;
+            padding-bottom: 27px;
+        
+            @media (max-width: 498px) {
+                &>*:not(:last-child) {
+                    margin-bottom: $padding-sefiry;
+                }
+            }
+        
+            .list {
+                color: $brand-text-color;
+                font-weight: 500;
+        
+                & > li {
+                    &::after {
+                        content: "";
+                        transition: .5s;
+                        display: block;
+                        opacity: 0;
+                        height: 1px;
+                        width: 100%;
+                        background: $brand-text-color;
+                    }
+                    
+                    &:hover {
+                        &::after {
+                            opacity: 100;
+                        }
+                    }
+        
+                    &:not(:last-child) {
+                        margin-right: clamp(10px, 1vw, 32px);
+                    }
+        
+                    a {
+                        :hover {
+                            font-weight: bold;
+                        }
+                    }
+                }
+            }
+            
+            &-button {
+                position: relative;
+                z-index: 3;
+                background: $brand-background-color;
+                color: #FFF;
+                border-radius: 50px;
+        
+                &:hover {
+                    background: #FFF;
+                    color: $brand-background-color;
+                }
+            }
+        }
+
+        .content {
+    
+            &__subtitle {
+                max-width: 490px;
+                color: $brand-text-color;
+            }
+    
+            .buttons {
+                @media (max-width: 336px) {
+                    & > *:not(:last-child) {
+                        margin-bottom: 20px;
+                    }
+                }
+
+                .primary {
+                    background: #F9B640;
+                    color: #FFF;
+
+                    &:hover {
+                        background: inherit;
+                        color: #F9B640;
+                    }
+                }
+    
+                .second {
+                    background-color: inherit;
+                    color: #F9B640;
+
+                    &:hover {
+                        background: #F9B640;
+                        color: #FFF;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.logo {
+    color: $brand-background-color;
+    font-weight: bold;
+}
+
+h1 {
+    color: $brand-text-color;
+    font-size: clamp(32px, 3vw, 48px);
+    max-width: 500px;
+}
+// === / header ===
+// === main ===
+// === why ===
+.why {
+    
+    .container {
+        max-width: none;
+        padding: 0;
+        color: #FFF;
+        grid-template-areas: "content img";
+        grid-template-columns: 1.7fr 1fr;
+
+        @media (max-width: 965px) {
+            grid-template:
+            "content" 1fr
+            "img" 1fr
+            ;
+        }
+        
+        .content {
+            padding-top: 150px;
+            background: $brand-background-color;
+            grid-area: "content";
+
+            @media (max-width: 965px) {
+                padding-left: 20px;         
+                padding-right: 20px;
+                padding-bottom: 20px;                
+            }
+
+            .subtitle {
+                max-width: 555px;
+            }
+        }
+    }
+    
+    &-img {
+        grid-area: "imng";
+
+        img {
+            width: 100%;
+            height: 605px;
+            object-fit: fill;
+
+            @media (max-width: 570px) {
+                object-position: top;
+                object-fit: contain;
+            }
+        }
+    }
+}
+// === / why ===
+// === about-us ===
+.about-us {
+
+    .container {
+        padding: 150px $padding-sefiry 0 clamp($padding-sefiry, 7vw,105px);
+
+        .title {
+            color: $brand-text-color;
+            margin-right: clamp(10px, 15vw, 225px);
+
+            @media (max-width: 901px) {
+                margin-bottom: $padding-sefiry;
+            }
+        }
+
+        .subtitle {
+            max-width: 592px;
+            font-size: clamp(18px, 2vw, 24px);
+            color: $brand-text-color;
+        }
+    }
+}
+// === / about-us ===
+// === help ===
+.help {
+    margin-top: 70px;
+    
+    &-title {
+        color: #22356F;
+        opacity: 50%;
+        margin-bottom: 24px;
+    }
+
+    .container {
+        padding: 0;
+        max-width: none;
+
+        .options {
+
+            &:first-of-type {
+                margin-bottom: 120px;
+            }
+
+            .option {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                flex-grow: 1;
+                
+                &-line {
+                    background: #FFF;
+                    width: 70%;
+                }
+                
+                &-first {
+                    padding: 72px clamp(15px, 3vw, 52px) 0;
+                    height: 360px;
+
+                    .title {
+                        margin-top: 23px;
+                    }
+                }
+                
+                &-second {
+                    padding: 96px clamp(15px, 4vw, 70px) 0;
+                    height: 480px;
+
+                    &_bg {
+                        background: url("/img/Main/Help/card-background.png");
+                        background-size: cover;
+                    }
+
+                    .title {
+                        margin-top: 30px;
+                    }
+                }
+
+                .title {
+                    width: 70%;
+                    color: #FFF;
+                    display: flex;
+                    flex-wrap: wrap;
+
+                    &::before {
+                        content: "";
+                        margin-top: 1rem;
+                        margin-right: clamp(1px, 5%, 15px);
+                        display: block;
+                        width: 9px;
+                        height: 9px;
+                        border-radius: 50%;
+                        background: #E9B730;
+                    }
+                }
+            }
+        }
+    }
+}
+// === / help ===
+// === opportunities ===
+.opportunities {
+
+    .container {
+        max-width: none;
+        padding: 20px clamp(10px, 1vw, 20px) 40px;
+    }
+}
+
+.card {
+    padding: clamp(25px, 2.5vw, 55px) clamp(35px, 3vw, 75px) clamp(20px, 1.5vw, 37px) clamp(50px, 5vw, 105px);
+    flex-basis: 33%;
+
+    &__title {
+        font-size: 28px;
+        color: $brand-text-color;
+        margin-bottom: 28px;
+    }
+
+    &__text {
+        color: $brand-text-color;
+        max-width: 300px;
+    }
+}
+// === / opportunities ===
+// === get-help ===
+.get-help {
+    
+    .container {
+        padding-left: 0;
+        padding-right: 0;
+        max-width: none;
+    }
+
+    &__img {
+        flex-basis: 33.3%;
+    }
+
+    &__content {
+        padding: 100px $padding-sefiry 40px clamp($padding-sefiry, 7vw, 100px);
+        flex-grow: 1;
+    }
+    
+    .content {
+        
+        &__subtitle {
+            
+            &:first-of-type {
+                color: $brand-text-color;
+            }
+            
+            &:last-of-type {
+                color: #FAB63E;
+            }
+        }
+        
+        &__title {
+            margin: 225px 0 150px;
+            color: $brand-text-color;
+            max-width: 675px;
+
+            &_light {
+                color: $brand-background-color;
+            }
+        }
+    }
+}
+// === / get-help ===
+// === smile ===
+.smile {
+    .container {
+        color: #FFF;
+        padding-left: 0;
+        padding-right: 0;
+        max-width: none;
+    }
+
+    &__content {
+        padding: 100px $padding-sefiry 40px clamp($padding-sefiry, 1.5vw, 180px);
+        flex-grow: 1;
+    }
+
+    &__img {
+        flex-basis: 33.3%;
+    }
+
+    .content {
+
+        &__subtitle {
+
+            &:last-child {
+                color: $brand-background-color;
+            }
+        }
+
+        &__text {
+            max-width: 580px;
+            margin-bottom: 90px;
+        }
+
+        &__title {
+            margin: 230px 0 75px;
+        }
+    }
+}
+// === / smile ===
+// === footer ===
+.footer {
+    font-size: 14px;
+
+    .container {
+        max-width: none;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    &__img {
+        @media (max-width: 1101px) {
+            order: 1;
+        }
+    }
+
+    &__content {
+        order: 0;
+        line-height: 20px;
+        padding: 100px $padding-sefiry;
+    }
+
+    .content {
+
+        &__list {
+            @media (max-width: 1101px) {
+                line-height: 2;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+        
+            & > * {
+                max-width: 205px;
+            }
+        }
+        
+        &__title {
+            color: $brand-text-color;
+            margin-bottom: 55px;
+        }
+
+        &__item {
+            color: rgba(34, 53, 111, .5);
+            
+            &_info {
+                margin-bottom: 50px;
+            }
+
+            &-mail {
+                color: #006DFF;
+            }
+        }
+    }
+
+    &__copyright {
+        color: #FFF;
+        background: $brand-background-color;
+        padding: 28px $padding-sefiry 28px clamp(20px, 2vw, 195px);
+    }
+}
+// === / footer ===
+// === / main ===
