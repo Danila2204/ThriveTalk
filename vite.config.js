@@ -1,5 +1,5 @@
 export default {
-  base: "/Landing-page",
+  base: "/ThriveTalk",
   root: "./src",
   build: {
     outDir: '../docs',
